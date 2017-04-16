@@ -2261,7 +2261,7 @@ MulticopterPositionControl::task_main()
 		//Update previous arming state
 		was_armed = _control_mode.flag_armed;
 
-		update_ref();
+		//update_ref();
 
 
 		update_velocity_derivative();
