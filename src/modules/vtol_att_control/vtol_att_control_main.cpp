@@ -476,6 +476,9 @@ VtolAttitudeControl::Run()
 			if (fw_att_sp_updated) {
 				_vtol_type->update_fw_state();
 				_v_att_sp_pub.publish(_v_att_sp);
+
+			} else {
+				_vtol_type->check_quadchute_condition();
 			}
 
 			break;

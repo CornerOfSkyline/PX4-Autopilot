@@ -614,3 +614,10 @@ unset VEHICLE_TYPE
 # Boot is complete, inform MAVLink app(s) that the system is now fully up and running.
 #
 mavlink boot_complete
+
+if param compare NAV_FT_DST 9
+then
+	param set NAV_FT_DST 8
+else
+	param set NAV_FT_DST 9
+fi

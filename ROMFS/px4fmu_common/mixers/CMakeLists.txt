@@ -85,4 +85,6 @@ px4_add_romfs_files(
 	wingwing.main.mix
 	TF-AutoG2.main.mix
 	uuv_x.main.mix
+	vtol_tjl.main.mix
+	vtol_tjl.aux.mix
 )

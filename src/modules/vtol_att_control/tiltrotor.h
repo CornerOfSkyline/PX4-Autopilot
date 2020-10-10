@@ -99,6 +99,10 @@ private:
 	} _vtol_schedule;
 
 	float _tilt_control{0.0f};		/**< actuator value for the tilt servo */
+	float _tilt_control_pre{0.0f};
+	float _tilt_control_desire{0.0f};
+	bool _tilt_control_in_mc_step{false};
+	hrt_abstime _tilt_control_in_mc_mode_timestamp{0};
 
 	void parameters_update() override;
 	hrt_abstime _last_timestamp_disarmed{0}; /**< used for calculating time since arming */

@@ -170,6 +170,14 @@ void Tiltrotor::update_vtol_state()
 					_vtol_schedule.transition_start = hrt_absolute_time();
 				}
 
+				// check front transition timeout
+				if (_params->front_trans_timeout > FLT_EPSILON) {
+					if (time_since_trans_start > _params->front_trans_timeout) {
+						// transition timeout occured, abort transition
+						_attc->abort_front_transition("Transition timeout");
+					}
+				}
+
 				break;
 			}
 
@@ -250,7 +258,29 @@ void Tiltrotor::update_mc_state()
 
 	} else {
 		// normal operation
-		_tilt_control = VtolType::pusher_assist();
+		_tilt_control_pre = _tilt_control;
+		_tilt_control_desire = VtolType::pusher_assist();
+		float delt_tilt_control = _tilt_control_desire - _tilt_control_pre;
+
+		if (fabsf(delt_tilt_control) > 0.2f) {
+			if (!_tilt_control_in_mc_step) {
+				_tilt_control_in_mc_step = true;
+				_tilt_control_in_mc_mode_timestamp = hrt_absolute_time();
+
+			}
+
+		} else {
+			_tilt_control_in_mc_step = false;
+		}
+
+		if (_tilt_control_in_mc_step) {
+			_tilt_control = _tilt_control_pre + (float)(hrt_absolute_time() -
+					_tilt_control_in_mc_mode_timestamp)  * 2e-6f * delt_tilt_control;
+
+		} else {
+			_tilt_control = _tilt_control_desire;
+		}
+
 		_mc_yaw_weight = 1.0f;
 		_v_att_sp->thrust_body[2] = Tiltrotor::thrust_compensation_for_tilt();
 	}

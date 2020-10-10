@@ -1,0 +1,34 @@
+# Quadcopter which front single back coaxial
+
+[info]
+key = "4bc"
+description = "Quadcopter which front single back coaxial"
+
+[rotor_default]
+axis      = [0.0, 0.0, -1.0]
+Ct        = 1.0
+Cm        = 0.05
+
+[[rotors]]
+name      = "front_left"
+position  = [0.119, -0.674, 0.0]
+direction = "CW"
+Ct = 7.7916
+Cm = 0.650883974
+
+[[rotors]]
+name      = "front_right"
+position  = [0.119, 0.674, 0.0]
+direction = "CCW"
+Ct = 7.7916
+Cm = 0.650883974
+
+[[rotors]]
+name      = "rear_top"
+position  = [-1.089, 0.0, -0.1]
+direction = "CW"
+
+[[rotors]]
+name      = "rear_bottom"
+position  = [-1.089, 0.0, 0.1]
+direction = "CCW"
