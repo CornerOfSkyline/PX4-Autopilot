@@ -170,8 +170,9 @@
 
     <include>
       <name>rover_land_pad</name>
-      <pose>-5 -5 0 0 0 0</pose>
+      <pose>1 0 0 0 0 0</pose>
       <uri>model://rover_land_pad/model.sdf</uri>
+      <static>true</static>
     </include>
 
   </world>
