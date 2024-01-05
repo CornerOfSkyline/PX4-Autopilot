@@ -52,7 +52,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-              <albedo_map>model://land_pad/materials/textures/charuco_board_2_x_2.png</albedo_map>
+              <albedo_map>model://land_pad/materials/textures/charuco_board_4_x_4.png</albedo_map>
             </metal>
           </pbr>
         </material>
