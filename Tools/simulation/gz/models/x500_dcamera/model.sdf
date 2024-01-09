@@ -22,7 +22,7 @@
       </axis>
     </joint>
 
-    <static>true</static>
+    <static>false</static>
 
   </model>
 </sdf>
