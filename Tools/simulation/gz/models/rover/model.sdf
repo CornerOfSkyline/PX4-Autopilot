@@ -904,7 +904,7 @@
             <match field="data">16777235</match>
         </input>
         <output type="gz.msgs.Double" topic="/rover/cmd_vel">
-            data: 2.0
+            data: 3.0
         </output>
         <output type="gz.msgs.Double" topic="/rover/cmd_steer">
             data: 0.0
@@ -918,7 +918,7 @@
             <match field="data">16777237</match>
         </input>
         <output type="gz.msgs.Double" topic="/rover/cmd_vel">
-            data: -2.0
+            data: -3.0
         </output>
         <output type="gz.msgs.Double" topic="/rover/cmd_steer">
             data: 0.0
